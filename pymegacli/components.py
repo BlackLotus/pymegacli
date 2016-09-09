@@ -88,7 +88,10 @@ class Component(object):
         self.props[key] = value
 
     def __getitem__(self, key):
-        return self.props[key]
+        if key in self.props:
+            return self.props[key]
+        else:
+            print key+" doesn't exist"
 
     def get(self, key, default=None):
         return self.props.get(key, default)
